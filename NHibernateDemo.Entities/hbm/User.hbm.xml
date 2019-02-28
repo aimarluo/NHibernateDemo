@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 注意hibernate-mapping的assembly、namespace属性要填写正确 -->
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="NHibernateDemo.Entities" namespace="NHibernateDemo.Entities.Domain">
+  <!-- class的name属性表示类名，table是映射的表名，如果类名称和表名称相同，可以省略table属性 -->
+  <class name="User" table="User">
+    <id name="Id">
+      <generator class="native"/>
+    </id>
+    <version name="Version"/>
+    <property name="Name" not-null="true"/>
+    <property name="Age" not-null="true"/>
+    <component name="Address">
+      <property name="Street"/>
+      <property name="City"/>
+      <property name="Province"/>
+      <property name="Country"/>
+    </component>
+  </class>
+</hibernate-mapping>
+<!--property的name属性是类的属性名，如果类属性名和表的列名相同，可以省略column属性
+property的type属性表示.net类属性映射的NHibernate数据类型。如果是int、bool、double这样的.net基础数据类型，则可以省略
+property的type属性如果是DateTime、string，也可以省略
+property的not-null属性对应关系表的列的nullable属性，默认值是false。因此，如果允许为空，则可以省略
+id表示主键，name为主键名，<generator class="native"/>表示数据表的主键按简单Identity的自增算法生成新记录主键值（NHibernate提供了多种主键值生成算法，这里只用最简单的Identity算法）
+文件名必须以.hbm.xml结尾-->
