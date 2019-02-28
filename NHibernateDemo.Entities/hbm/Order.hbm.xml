@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="NHibernateDemo.Entities" namespace="NHibernateDemo.Entities.Domain">
+  <class name="Order" table="`Order`">
+    <id name="Id">
+      <generator class="native"/>
+    </id>
+    <property name="Ordered"/>
+   
+    <many-to-one name="Customer" column="UserId" cascade="save-update"/>
+    <!--<bag name="Products" table="ProductOrder">
+      <key column="OrderID"/>
+      <many-to-many class="Product" column="ProductID"/>
+    </bag>-->
+  </class>
+</hibernate-mapping>

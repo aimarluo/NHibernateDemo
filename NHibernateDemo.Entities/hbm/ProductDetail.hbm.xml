@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="NHibernateDemo.Entities" namespace="NHibernateDemo.Entities.Domain">
+  <class name="ProductDetail" table="ProductDetail">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+    <property name="Description" not-null="true"/>
+    <many-to-one name="Product"	unique="true"	column="ProductId"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="NHibernateDemo.Entities" namespace="NHibernateDemo.Entities.Domain">
+  <class name="Product" table="Product">
+    <id name="Id">
+      <generator class="native"/>
+    </id>
+    <property name="ProductCode" not-null="true"/>
+    <property name="ProductName" not-null="true"/>
+    <property name="Description"/>
+    <bag name="Orders" table="ProductOrder" cascade="all">
+      <key column="ProductId"/>
+      <many-to-many class="Order" column="OrderId"/>
+    </bag>
+    <one-to-one name="ProductDetail" cascade="all" />
+  </class>
+</hibernate-mapping>

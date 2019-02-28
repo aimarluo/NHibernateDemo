@@ -15,6 +15,11 @@
       <property name="Province"/>
       <property name="Country"/>
     </component>
+    <set name="Orders" table="`Order`" cascade="all-delete-orphan">
+      <key column="UserId"/>
+      <one-to-many class="Order"/>
+    </set>
+
   </class>
 </hibernate-mapping>
 <!--property的name属性是类的属性名，如果类属性名和表的列名相同，可以省略column属性
