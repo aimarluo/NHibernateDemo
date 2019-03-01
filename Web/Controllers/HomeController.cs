@@ -20,7 +20,9 @@ namespace Web.Controllers
 
         public ActionResult Index()
         {
-            var list = repository.GetAll(); 
+            var list = repository.GetAll();
+
+            var ulist = userService.GetAboutUser(3);
 
 
             return View();

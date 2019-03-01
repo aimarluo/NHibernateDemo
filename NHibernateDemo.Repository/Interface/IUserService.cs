@@ -9,5 +9,6 @@ namespace NHibernateDemo.Repository.Interface
 {
     public interface IUserService : IRepository<User>
     {
+        IList<User> GetAboutUser(int userId); 
     }
 }
